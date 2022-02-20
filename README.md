@@ -1,12 +1,40 @@
-# UpStarMusic
-Starter Repo for a Webpack course on Udemy
+## Deployment for S3
 
-You can download this repository by using the green `Clone or Download` button on the right hand side of this page.  This will present you with the option to either clone the repository using Git, or to download it as a zip file.
+1. install s3-website
+```
+npm install -g s3-website
+```
 
-If you want to download it using git, copy paste the link that is presented to you, then run the following at your terminal:
+2. create bucket by the packege
 
 ```
-git clone https://github.com/StephenGrider/WebpackProject.git
-cd WebpackProject
-npm install
+s3-website create [your-bucket-name]
+```
+
+3. deploy directory to the bucket
+
+```
+s3-website deploy dist
+```
+
+## Deployment for github-pages
+
+git hub makes use of a very specially-named branch called "gh-pages"
+Automatically served on https://[ Username ].github.io/< RepoName >
+
+1. create branch & push the bundled assets dir into gh-pages
+```
+git subtree push --prefix dist origin gh-pages
+```
+
+## Node And Webpack Integration
+
+1. install webpack-dev-middleware(only for development)
+
+webpack-Middleware only serves to intercept incoming requests and hand it off to webpack.  
+webpack exists to compile all of our app assets, and webpackConfig is what instructs webpack on how to run correctly.  
+
+
+```
+npm install --save-dev webpack-dev-middleware
 ```
