@@ -38,3 +38,30 @@ webpack exists to compile all of our app assets, and webpackConfig is what instr
 ```
 npm install --save-dev webpack-dev-middleware
 ```
+
+2. deploy for EB
+
+```
+brew install awsebcli
+```
+
+```bash
+eb init
+# select a default region
+# Enter AWS Credentials
+# Enter Application Name
+# 
+```
+```bash
+# provisioning apps
+eb create
+```
+```bash
+# set the environment variable
+eb setenv NODE_ENV=production
+```
+
+```bash
+# kill the entire environment 
+eb terminate
+```
